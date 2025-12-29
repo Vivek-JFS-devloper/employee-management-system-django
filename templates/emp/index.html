@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Employee Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* 🌐 Global */
+      body {
+        background-color: #f4f6f9;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      /* 🧾 Card polish (applies inside show-emp.html also) */
+      .card {
+        border-radius: 14px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+        border: none;
+      }
+
+      .card-header {
+        background: linear-gradient(90deg, #4e54c8, #8f94fb);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      /* 📊 Table */
+      table {
+        font-size: 14px;
+      }
+
+      thead th {
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      tbody td {
+        vertical-align: middle;
+      }
+
+      /* ✂️ Long text handling */
+      .text-truncate-custom {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .email-col {
+        max-width: 200px;
+      }
+
+      .name-col {
+        max-width: 160px;
+      }
+
+      .designation-col {
+        max-width: 180px;
+      }
+
+      /* 💰 Salary */
+      .salary-text {
+        font-weight: 600;
+        color: #198754;
+        white-space: nowrap;
+      }
+
+      /* 🎯 Action buttons */
+      .btn-group .btn {
+        padding: 4px 7px;
+      }
+
+      /* 📱 Tablet */
+      @media (max-width: 768px) {
+        table {
+          font-size: 13px;
+        }
+
+        th:nth-child(4),
+        td:nth-child(4),
+        th:nth-child(9),
+        td:nth-child(9) {
+          display: none;
+        }
+      }
+
+      /* 📱 Mobile */
+      @media (max-width: 576px) {
+        th:nth-child(6),
+        td:nth-child(6),
+        th:nth-child(7),
+        td:nth-child(7) {
+          display: none;
+        }
+      }
+
+      /* 🔻 Footer */
+      footer {
+        background: #fff;
+        margin-top: 40px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% include 'emp/navbar.html' %}
+
+    <div class="container my-4">{% include 'emp/show-emp.html' %}</div>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-3 text-muted">
+      © 2025 EMP Management System | Built with ❤️ using Django
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

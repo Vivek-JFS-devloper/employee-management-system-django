@@ -1,0 +1,118 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-lg border-0 rounded-4">
+        <!-- HEADER -->
+        <div
+          class="card-header text-white fw-semibold d-flex justify-content-between align-items-center"
+          style="background: linear-gradient(90deg, #4e54c8, #8f94fb)"
+        >
+          <span>👨‍💼 Employee List</span>
+          <a href="/emp/add/" class="btn btn-light btn-sm fw-semibold">
+            + Add Employee
+          </a>
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead class="table-light">
+                <tr class="text-center">
+                  <th>#</th>
+                  <th>Emp ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Dept</th>
+                  <th>Role</th>
+                  <th>Salary</th>
+                  <th>Joined</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for emp in emps %}
+                <tr>
+                  <td class="text-center fw-semibold">{{ forloop.counter }}</td>
+
+                  <td>
+                    <span class="badge bg-secondary">
+                      {{ emp.employee_id }}
+                    </span>
+                  </td>
+
+                  <td
+                    class="text-truncate-custom name-col"
+                    title="{{ emp.name }}"
+                  >
+                    {{ emp.name }}
+                  </td>
+
+                  <td
+                    class="text-truncate-custom email-col text-muted"
+                    title="{{ emp.email }}"
+                  >
+                    {{ emp.email }}
+                  </td>
+
+                  <td>{{ emp.phone }}</td>
+
+                  <td>
+                    <span
+                      class="badge bg-info text-dark text-truncate-custom"
+                      style="max-width: 130px"
+                      title="{{ emp.department }}"
+                    >
+                      {{ emp.department }}
+                    </span>
+                  </td>
+
+                  <td
+                    class="text-truncate-custom designation-col"
+                    title="{{ emp.designation }}"
+                  >
+                    {{ emp.designation }}
+                  </td>
+
+                  <td class="fw-semibold text-success">₹ {{ emp.salary }}</td>
+
+                  <td>{{ emp.date_of_joining|date:"d M Y" }}</td>
+
+                  <td class="text-center">
+                    <div class="btn-group btn-group-sm">
+                      <a
+                        href="/emp/update/{{ emp.id }}/"
+                        class="btn btn-outline-primary"
+                      >
+                        <i class="bi bi-pencil-square"></i>
+                      </a>
+
+                      <a
+                        href="/emp/delete/{{ emp.id }}/"
+                        class="btn btn-outline-danger"
+                        onclick="return confirm('Are you sure?')"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+
+                {% empty %}
+                <tr>
+                  <td colspan="10" class="text-center text-danger">
+                    No Employees Found
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- BODY END -->
+      </div>
+    </div>
+  </div>
+</div>
